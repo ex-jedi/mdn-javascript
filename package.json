@@ -1,0 +1,19 @@
+{
+  "name": "mdn-javascript",
+  "version": "1.0.0",
+  "description": "Mozilla JavaScript tutotials",
+  "main": "or.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ex-jedi/mdn-javascript.git"
+  },
+  "author": "Meee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ex-jedi/mdn-javascript/issues"
+  },
+  "homepage": "https://github.com/ex-jedi/mdn-javascript#readme"
+}
