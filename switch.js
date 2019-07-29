@@ -1,52 +1,24 @@
 switch (choice) {
-	case "January":
-		days = 31;
+	case "white":
+		update("white", "black");
 		break;
 
-	case "February":
-		days = 28;
+	case "black":
+		update("black", "white");
 		break;
 
-	case "March":
-		days = 31;
+	case "purple":
+		update("purple", "white");
 		break;
 
-	case "April":
-		days = 30;
+	case "yellow":
+		update("yellow", "black");
 		break;
 
-	case "May":
-		days = 31;
-		break;
-
-	case "June":
-		days = 30;
-		break;
-
-	case "July":
-		days = 31;
-		break;
-
-	case "August":
-		days = 31;
-		break;
-
-	case "September":
-		days = 30;
-		break;
-
-	case "October":
-		days = 31;
-		break;
-
-	case "November":
-		days = 30;
-		break;
-
-	case "December":
-		days = 30;
+	case "psychedelic":
+		update("lime", "purple");
 		break;
 
 	default:
-		days = 30;
+		update("white", "black");
 }
