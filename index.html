@@ -7,24 +7,26 @@
     <title>Document</title>
   </head>
   <body>
-    <p></p>
+    <div class="output"></div>
 
     <script>
-      let cats = ['Bill', 'Jeff', 'Pete', 'Biggles', 'Jasmin'];
-      let info = 'My cats are called ';
-      let para = document.querySelector('p');
-      let i = 0;
+      let output = document.querySelector('.output');
+      output.innerHTML = '';
 
-      do {
-        if (i === cats.length - 1) {
-          info += 'and ' + cats[i] + '.';
-        } else {
-          info += cats[i] + ', ';
+      let i = 10;
+      while (i >= 0) {
+        const para = document.createElement('p');
+        if (i === 10) {
+          para.textContent = `Countdown ${i}`;
         }
-
-        i++;
-      } while (i < cats.length);
-      para.textContent = info;
+        if (i === 0) {
+          para.textContent = 'Blast off!';
+        } else {
+          para.textContent = `${i}`;
+        }
+        output.appendChild(para);
+        i--;
+      }
     </script>
   </body>
 </html>
