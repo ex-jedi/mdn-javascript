@@ -17,6 +17,9 @@
         line-height: 1.5;
         padding: 10px 20px;
         color: #333;
+        padding-left: 82px;
+        background-position: 25px center;
+        background-repeat: no-repeat;
       }
 
       .msgBox button {
@@ -36,7 +39,7 @@
     <script>
       var btn = document.querySelector('button');
       btn.onclick = function() {
-        displayMessage('This is a new message!');
+        displayMessage('This is a new message!', 'warning');
       };
 
       function displayMessage(msgText, msgType) {
@@ -57,6 +60,16 @@
         closeBtn.onclick = function() {
           panel.parentNode.removeChild(panel);
         };
+
+        if (msgType === 'warning') {
+          msg.style.backgroundImage = 'url(icons/warning.png)';
+          panel.style.backgroundColor = 'red';
+        } else if (msgType === 'chat') {
+          msg.style.backgroundImage = 'url(icons/chat.png)';
+          panel.style.backgroundColor = 'aqua';
+        } else {
+          msg.style.paddingLeft = '20px';
+        }
       }
     </script>
   </body>
