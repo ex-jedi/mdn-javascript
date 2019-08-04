@@ -2,46 +2,79 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Random color example — event handler property</title>
+    <title>Show video box example</title>
     <style>
-      button {
-        margin: 10px;
+      div {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 480px;
+        height: 380px;
+        border-radius: 10px;
+        background-color: #eee;
+        background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.1)
+        );
+      }
+
+      .hidden {
+        left: -50%;
+      }
+
+      .showing {
+        left: 50%;
+      }
+
+      div video {
+        display: block;
+        width: 400px;
+        margin: 40px auto;
       }
     </style>
   </head>
   <body>
-    <button>Change color</button>
+    <button>Display video</button>
+
+    <div class="hidden">
+      <video>
+        <source
+          src="https://mdn.github.io/learning-area/javascript/building-blocks/events/rabbit320.mp4"
+          type="video/mp4"
+        />
+        <p>
+          Your browser doesn't support HTML5 video. Here is a
+          <a
+            href="https://mdn.github.io/learning-area/javascript/building-blocks/events/rabbit320.mp4"
+            >link to the video</a
+          >
+          instead.
+        </p>
+      </video>
+    </div>
+
     <script>
       var btn = document.querySelector('button');
+      var videoBox = document.querySelector('div');
+      var video = document.querySelector('video');
 
-      function random(number) {
-        return Math.floor(Math.random() * number);
-      }
+      btn.onclick = function() {
+        videoBox.setAttribute('class', 'showing');
+      };
 
-      function bgChange() {
-        var rndCol =
-          'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
-        document.body.style.backgroundColor = rndCol;
-      }
+      videoBox.onclick = function() {
+        videoBox.setAttribute('class', 'hidden');
+      };
 
-      // btn.onfocus = bgChange;
-      // btn.onblur = bgChange;
-      // btn.ondblclick = bgChange;
-      // btn.onclick = bgChange;
-      // window.onkeypress = bgChange;
-      // window.onkeydown = bgChange;
-      // window.onkeyup = bgChange;
-      // btn.onmouseout = bgChange;
-      // btn.onmouseover = bgChange;
-
-      function bgChange(e) {
-        var rndCol =
-          'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
-        e.target.style.backgroundColor = rndCol;
-        console.log(e);
-      }
-
-      btn.addEventListener('click', bgChange);
+      video.addEventListener(
+        'click',
+        function(e) {
+          e.stopPropagation();
+          video.play();
+        },
+        true,
+      );
     </script>
   </body>
 </html>
