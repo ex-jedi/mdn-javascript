@@ -2,40 +2,40 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Useful event target example</title>
+    <title>Prevent default example</title>
     <style>
       div {
-        background-color: red;
-        height: 100px;
-        width: 25%;
-        float: left;
+        margin-bottom: 10px;
       }
     </style>
   </head>
   <body>
+    <form>
+      <div>
+        <label for="fname">First name: </label>
+        <input id="fname" type="text" />
+      </div>
+      <div>
+        <label for="lname">Last name: </label>
+        <input id="lname" type="text" />
+      </div>
+      <div>
+        <input id="submit" type="submit" />
+      </div>
+    </form>
+    <p></p>
     <script>
-      for (var i = 1; i <= 16; i++) {
-        var myDiv = document.createElement('div');
-        document.body.appendChild(myDiv);
-      }
+      var form = document.querySelector('form');
+      var fname = document.getElementById('fname');
+      var lname = document.getElementById('lname');
+      var para = document.querySelector('p');
 
-      function random(number) {
-        return Math.floor(Math.random() * number);
-      }
-
-      function bgChange() {
-        var rndCol =
-          'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
-        return rndCol;
-      }
-
-      var divs = document.querySelectorAll('div');
-
-      for (var i = 0; i < divs.length; i++) {
-        divs[i].addEventListener('click', function(e) {
-          e.target.style.backgroundColor = bgChange();
-        });
-      }
+      form.onsubmit = function(e) {
+        if (fname.value === '' || lname.value === '') {
+          e.preventDefault();
+          para.textContent = 'You need to fill in both names!';
+        }
+      };
     </script>
   </body>
 </html>
