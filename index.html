@@ -34,11 +34,14 @@
       // btn.onmouseout = bgChange;
       // btn.onmouseover = bgChange;
 
-      btn.addEventListener('click', bgChange);
-      btn.addEventListener('click', function(e) {
-        e;
+      function bgChange(e) {
+        var rndCol =
+          'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+        e.target.style.backgroundColor = rndCol;
         console.log(e);
-      });
+      }
+
+      btn.addEventListener('click', bgChange);
     </script>
   </body>
 </html>
