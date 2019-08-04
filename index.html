@@ -32,7 +32,16 @@
       // window.onkeydown = bgChange;
       // window.onkeyup = bgChange;
       // btn.onmouseout = bgChange;
-      btn.onmouseover = bgChange;
+      // btn.onmouseover = bgChange;
+
+      function bgChange(e) {
+        var rndCol =
+          'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+        e.target.style.backgroundColor = rndCol;
+        console.log(e);
+      }
+
+      btn.addEventListener('click', bgChange);
     </script>
   </body>
 </html>
