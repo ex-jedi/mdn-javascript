@@ -32,9 +32,9 @@
       var divs = document.querySelectorAll('div');
 
       for (var i = 0; i < divs.length; i++) {
-        divs[i].onclick = function(e) {
+        divs[i].addEventListener('click', function(e) {
           e.target.style.backgroundColor = bgChange();
-        };
+        });
       }
     </script>
   </body>
