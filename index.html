@@ -2,17 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Random color example — event handler property</title>
+    <title>Useful event target example</title>
     <style>
-      button {
-        margin: 10px;
+      div {
+        background-color: red;
+        height: 100px;
+        width: 25%;
+        float: left;
       }
     </style>
   </head>
   <body>
-    <button>Change color</button>
     <script>
-      var btn = document.querySelector('button');
+      for (var i = 1; i <= 16; i++) {
+        var myDiv = document.createElement('div');
+        document.body.appendChild(myDiv);
+      }
 
       function random(number) {
         return Math.floor(Math.random() * number);
@@ -21,27 +26,16 @@
       function bgChange() {
         var rndCol =
           'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
-        document.body.style.backgroundColor = rndCol;
+        return rndCol;
       }
 
-      // btn.onfocus = bgChange;
-      // btn.onblur = bgChange;
-      // btn.ondblclick = bgChange;
-      // btn.onclick = bgChange;
-      // window.onkeypress = bgChange;
-      // window.onkeydown = bgChange;
-      // window.onkeyup = bgChange;
-      // btn.onmouseout = bgChange;
-      // btn.onmouseover = bgChange;
+      var divs = document.querySelectorAll('div');
 
-      function bgChange(e) {
-        var rndCol =
-          'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
-        e.target.style.backgroundColor = rndCol;
-        console.log(e);
+      for (var i = 0; i < divs.length; i++) {
+        divs[i].onclick = function(e) {
+          e.target.style.backgroundColor = bgChange();
+        };
       }
-
-      btn.addEventListener('click', bgChange);
     </script>
   </body>
 </html>
