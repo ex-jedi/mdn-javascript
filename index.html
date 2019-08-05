@@ -67,14 +67,10 @@
         videoBox.setAttribute('class', 'hidden');
       };
 
-      video.addEventListener(
-        'click',
-        function(e) {
-          e.stopPropagation();
-          video.play();
-        },
-        true,
-      );
+      video.addEventListener('click', function(e) {
+        e.stopPropagation();
+        video.play();
+      });
     </script>
   </body>
 </html>
