@@ -51,6 +51,9 @@ function updateRecords(id, prop, value) {
       if(!collection[id].tracks){
         collection[id].tracks = [];
       }
+      collection[id].tracks.push(value);
+    } else {
+      collection[id][prop] = value;
     }
   }
   console.log(collection);
